@@ -32,8 +32,9 @@ while (entrada != "ESC") {
       alert("toma tu wisky");
       break;
     default:
-      alert("¿NO VAS A TOMAR NADA CAGÓN?");
+      alert("¿NO VAS A TOMAR NADA?");
       break;
   }
   entrada = prompt("elija una bebida");
+  
 }
