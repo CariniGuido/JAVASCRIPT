@@ -85,3 +85,19 @@ ${vino.mostrarInfo()} </p>
 `);
 
 document.write(`<p>total: ${sumarBebidas([cerveza, wiskye, vino])}</p>`);
+
+const TodasNuestrasBebidas = ['cervezas', 'wiskyes', 'vinos', 'fernet', 'gancia', 'smirnoff'];
+
+function buscarBebidas() {
+  let bebidaAbuscar = prompt("busca tu bebida:");
+  let resultado = TodasNuestrasBebidas.includes(bebidaAbuscar);
+  if (resultado) {
+    console.log("tenemos stock.");
+  }
+
+  else {
+    console.warn("no tenemos stock:");
+
+  }
+
+}
