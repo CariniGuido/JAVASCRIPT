@@ -1,103 +1,140 @@
-// debugger;
+// // // debugger;
 
-// let nombre;
+// // // let nombre;
 
-// nombre = prompt('Ingrese su nombre:');
+// // // nombre = prompt('Ingrese su nombre:');
 
-// alert ('Hola '+nombre);
+// // // alert ('Hola '+nombre);
 
 
-// var dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+// // // var dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
 
-// for(var i=0; i<7; i++) {
-//   alert(dias[i]);
-// }
+// // // for(var i=0; i<7; i++) {
+// // //   alert(dias[i]);
+// // // }
 
-// let entrada = prompt("elija una bebida.");
+// // // let entrada = prompt("elija una bebida.");
 
-// while (entrada != "ESC") {
-//   switch (entrada) {
-//     case "cerveza":
-//       alert("toma tu cerveza");
-//       break;
+// // // while (entrada != "ESC") {
+// // //   switch (entrada) {
+// // //     case "cerveza":
+// // //       alert("toma tu cerveza");
+// // //       break;
 
-//     case "fernet":
-//       alert("toma tu fernet");
-//       break;
+// // //     case "fernet":
+// // //       alert("toma tu fernet");
+// // //       break;
 
-//     case "vino":
-//       alert("toma tu vino");
-//       break;
+// // //     case "vino":
+// // //       alert("toma tu vino");
+// // //       break;
 
-//     case "wisky":
-//       alert("toma tu wisky");
-//       break;
-//     default:
-//       alert("¿NO VAS A TOMAR NADA?");
-//       break;
+// // //     case "wisky":
+// // //       alert("toma tu wisky");
+// // //       break;
+// // //     default:
+// // //       alert("¿NO VAS A TOMAR NADA?");
+// // //       break;
+// // //   }
+// // //   entrada = prompt("elija una bebida");
+
+// // // }
+
+
+
+// // // clase bebida
+// // class BebidaAlcoholica {
+// //   constructor(tipo, precio, ml, envase, marca) {
+// //     this.tipo = tipo;
+// //     this.precio = precio;
+// //     this.miliLitros = ml;
+// //     this.envase = envase;
+// //     this.marca = marca;
+// //   }// esta llave termina constructor
+
+// //   // metodo para mostrar informacion
+// //   mostrarInfo() {
+// //     return `<p>tipo: <b>${this.tipo}</b> <br>
+// //             precio: <b>${this.precio}</b> <br>
+// //             ml: <b>${this.miliLitros}</b> <br>
+// //             envase: <b>${this.envase}</b> <br>
+// //             marca: <b>${this.marca}</b> <br></p>`;
+// //   };// esta llave termina metodo 
+// // } // esta llave termina clase
+
+
+// // // sumar
+// // const sumarBebidas = (bebidas) => {
+// //   let total = 0;
+// //   for (let i = 0; i < bebidas.length; i++) {
+// //     total = total + parseFloat(bebidas[i].precio);
+// //   }
+// //   return total.toFixed(2);
+// // }
+
+// // /// creando productos
+// // const cerveza = new BebidaAlcoholica("cervezaNegra", "500", "750", "vidrio", "ipa");
+// // const wiskye = new BebidaAlcoholica("irlandes", "5100", "750", "vidrio", "wellnes");
+// // const vino = new BebidaAlcoholica("tinto", "850", "750", "vidrio", "piel de cordero");
+
+// // // mostrar en pantalla
+// // document.write(`<p>
+// // ${cerveza.mostrarInfo()} <br>
+// // ${wiskye.mostrarInfo()}  <br>
+// // ${vino.mostrarInfo()} </p>
+// // `);
+
+// // document.write(`<p>total: ${sumarBebidas([cerveza, wiskye, vino])}</p>`);
+
+// const TodasNuestrasBebidas = ['cervezas', 'wiskyes', 'vinos', 'fernet', 'gancia', 'smirnoff'];
+
+// function buscarBebidas() {
+//   let bebidaAbuscar = prompt("busca tu bebida:");
+//   let resultado = TodasNuestrasBebidas.includes(bebidaAbuscar);
+//   if (resultado) {
+//     console.log("tenemos stock.");
 //   }
-//   entrada = prompt("elija una bebida");
+
+//   else {
+//     console.warn("no tenemos stock:");
+
+//   }
 
 // }
 
 
+class producto {
 
-// clase bebida
-class BebidaAlcoholica {
-  constructor(tipo, precio, ml, envase, marca) {
-    this.tipo = tipo;
-    this.precio = precio;
-    this.miliLitros = ml;
-    this.envase = envase;
-    this.marca = marca;
-  }// esta llave termina constructor
-
-  // metodo para mostrar informacion
-  mostrarInfo() {
-    return `<p>tipo: <b>${this.tipo}</b> <br>
-            precio: <b>${this.precio}</b> <br>
-            ml: <b>${this.miliLitros}</b> <br>
-            envase: <b>${this.envase}</b> <br>
-            marca: <b>${this.marca}</b> <br></p>`;
-  };// esta llave termina metodo 
-} // esta llave termina clase
-
-
-// sumar
-const sumarBebidas = (bebidas) => {
-  let total = 0;
-  for (let i = 0; i < bebidas.length; i++) {
-    total = total + parseFloat(bebidas[i].precio);
+  constructor(id, nombre, precio) {
+    this.id = id
+    this.nombre = nombre
+    this.precio = precio
   }
-  return total.toFixed(2);
+}
+const productos =
+  [
+    { id: 1, nombre: "CERVEZA", precio: 500 },
+    { id: 2, nombre: "GANCIA", precio: 750 },
+    { id: 3, nombre: "FERNET", precio: 1200 },
+    { id: 4, nombre: "WISKEY", precio: 5100 }]
+
+function buscarProducto() {
+  let aBuscar = prompt("ingrese la bebida que quiere buscar:").toUpperCase()
+
+  let resultado = productos.filter((producto) => producto.nombre.includes(aBuscar))
+
+  if (resultado !== undefined) {
+    console.clear();
+    console.table(resultado);
+  }
 }
 
-/// creando productos
-const cerveza = new BebidaAlcoholica("cervezaNegra", "500", "750", "vidrio", "ipa");
-const wiskye = new BebidaAlcoholica("irlandes", "5100", "750", "vidrio", "wellnes");
-const vino = new BebidaAlcoholica("tinto", "850", "750", "vidrio", "piel de cordero");
 
-// mostrar en pantalla
-document.write(`<p>
-${cerveza.mostrarInfo()} <br>
-${wiskye.mostrarInfo()}  <br>
-${vino.mostrarInfo()} </p>
-`);
+// function generadorAutomatico() {
+//   productos.push(new Producto(1234, "cerveza", 500))
+//   productos.push(new Producto(2345, "gancia", 750))
+//   productos.push(new Producto(3456, "fernet", 1200))
+//   productos.push(new Producto(4567, "wiskey", 5100))
 
-document.write(`<p>total: ${sumarBebidas([cerveza, wiskye, vino])}</p>`);
-
-const TodasNuestrasBebidas = ['cervezas', 'wiskyes', 'vinos', 'fernet', 'gancia', 'smirnoff'];
-
-function buscarBebidas() {
-  let bebidaAbuscar = prompt("busca tu bebida:");
-  let resultado = TodasNuestrasBebidas.includes(bebidaAbuscar);
-  if (resultado) {
-    console.log("tenemos stock.");
-  }
-
-  else {
-    console.warn("no tenemos stock:");
-
-  }
-
-}
+// }
+// generadorAutomatico()
