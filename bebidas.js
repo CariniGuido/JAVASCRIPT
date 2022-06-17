@@ -138,3 +138,43 @@ function buscarProducto() {
 
 // }
 // generadorAutomatico()
+
+let miFormulario      = document.getElementById("formularioContacto");
+miFormulario.addEventListener("submit", validarFormulario);
+
+function validarFormulario(e){
+
+    //Cancelamos el comportamiento del evento
+    e.preventDefault();
+    //Obtenemos el elemento desde el cual se disparó el evento
+    let formulario = e.target
+    //Obtengo el valor del primero hijo <input type="text">
+    console.log(formulario["nombre"].value); 
+    if (formulario["nombre"].value==="") {
+      alert ("debe ingresar un nombre");
+      console.log(formulario["nombre"].value); 
+  
+      
+
+      alert ("debe ingresar un nombre");
+      
+      return 
+    }
+    
+  
+}
+ 
+
+const ofertasDiv = document.getElementById("ofertas");
+
+const arrayOfertas = [
+  "1 fernet branca mas una coca 1400 pesos",
+  "gancia mas una sprite 900 pesos",
+  "1 cajon de cervezas te llevas una de regalo"
+];
+
+// Aleatorio del entre 0 y 2
+// Cambiar segun cuantos haya en ofertas
+const aleatorio = Math.round(Math.random() * (3 - 1) * 1);
+
+ofertasDiv.innerHTML = arrayOfertas[aleatorio];
