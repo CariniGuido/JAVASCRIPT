@@ -139,31 +139,29 @@ function buscarProducto() {
 // }
 // generadorAutomatico()
 
-let miFormulario      = document.getElementById("formularioContacto");
+let miFormulario = document.getElementById("formularioContacto");
 miFormulario.addEventListener("submit", validarFormulario);
 
-function validarFormulario(e){
+function validarFormulario(e) {
 
-    //Cancelamos el comportamiento del evento
-    e.preventDefault();
-    //Obtenemos el elemento desde el cual se disparó el evento
-    let formulario = e.target
-    //Obtengo el valor del primero hijo <input type="text">
-    console.log(formulario["nombre"].value); 
-    if (formulario["nombre"].value==="") {
-      alert ("debe ingresar un nombre");
-      console.log(formulario["nombre"].value); 
-  
-      
+  //Cancelamos el comportamiento del evento
+  e.preventDefault();
+  //Obtenemos el elemento desde el cual se disparó el evento
+  let formulario = e.target
+  //Obtengo el valor del primero hijo <input type="text">
+  console.log(formulario["nombre"].value);
+  if (formulario["nombre"].value === "") {
+    alert("debe ingresar un nombre");
+    console.log(formulario["nombre"].value);
 
-      alert ("debe ingresar un nombre");
-      
-      return 
-    }
-    
-  
+
+    return
+  }
+
+
 }
- 
+
+
 
 const ofertasDiv = document.getElementById("ofertas");
 
@@ -178,3 +176,37 @@ const arrayOfertas = [
 const aleatorio = Math.round(Math.random() * (3 - 1) * 1);
 
 ofertasDiv.innerHTML = arrayOfertas[aleatorio];
+
+
+const inputNombre = document.querySelector("#inputNombre")
+const inputTelefono = document.querySelector("#inputTelefono")
+const inputEmail = document.querySelector("#inputEmail")
+const btnSubmit = document.querySelector("#submit")
+
+let datosDeInput = ""
+document.addEventListener("submit", (e) => {
+  e.preventDefault()
+  guardarDatosDeUsr()
+  alert(`Gracias por su compra 😃`)
+})
+
+function guardarDatosDeUsr() {
+  debugger
+  const datosDeUsr = {
+    nombre: inputNombre.value,
+    telefono: inputApellido.value,
+    email: inputEmail.value
+  }
+  let str = JSON.stringify(datosDeUsr)
+  localStorage.setItem("datosDeUsr", str)
+}
+
+function recuperoDatosDeUsr()
+if (localStorage.getItem("datosDeUsr")) {
+  const datosDeUsr = JSON.parse(localStorage.getItem("datosDeUsr"))
+  inputNombre.value = datosDeUsr.nombre
+  inputTelefono.value = datosDeUsr.telefono
+  inputEmail.value = datosDeUsr.email
+}    
+
+recuperoDatosDeUsr()
