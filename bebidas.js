@@ -157,8 +157,28 @@ function validarFormulario(e) {
 
     return
   }
+  console.log(formulario["apellido"].value);
+  if (formulario["apellido"].value === "") {
+    alert("debe ingresar un apellido");
+    console.log(formulario["apellido"].value);
 
 
+    return
+  }
+  console.log(formulario["email"].value);
+  if (formulario["email"].value === "") {
+    alert("debe ingresar un correo");
+    console.log(formulario["email"].value);
+
+
+    return
+  }
+  guardarDatosDeUsr(
+
+    formulario["nombre"].value,
+    formulario["apellido"].value,
+    formulario["email"].value
+  )
 }
 
 
@@ -179,34 +199,35 @@ ofertasDiv.innerHTML = arrayOfertas[aleatorio];
 
 
 const inputNombre = document.querySelector("#inputNombre")
-const inputTelefono = document.querySelector("#inputTelefono")
+const inputApellido = document.querySelector("#inputApellido")
 const inputEmail = document.querySelector("#inputEmail")
 const btnSubmit = document.querySelector("#submit")
 
-let datosDeInput = ""
+// let datosDeInput = ""
 document.addEventListener("submit", (e) => {
   e.preventDefault()
   guardarDatosDeUsr()
   alert(`Gracias por su compra 😃`)
 })
 
-function guardarDatosDeUsr() {
+function guardarDatosDeUsr(nombre, apellido, email) {
   debugger
   const datosDeUsr = {
-    nombre: inputNombre.value,
-    telefono: inputApellido.value,
-    email: inputEmail.value
+    nombre: nombre,
+    apellido: apellido,
+    email: email
   }
   let str = JSON.stringify(datosDeUsr)
   localStorage.setItem("datosDeUsr", str)
 }
 
-function recuperoDatosDeUsr()
+function recuperoDatosDeUsr(){
 if (localStorage.getItem("datosDeUsr")) {
   const datosDeUsr = JSON.parse(localStorage.getItem("datosDeUsr"))
-  inputNombre.value = datosDeUsr.nombre
-  inputTelefono.value = datosDeUsr.telefono
-  inputEmail.value = datosDeUsr.email
-}    
-
-recuperoDatosDeUsr()
+  nombre.value = datosDeUsr.nombre
+  apellido.value = datosDeUsr.apellido
+  email.value = datosDeUsr.email
+  return
+}
+}
+;
