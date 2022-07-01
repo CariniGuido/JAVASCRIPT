@@ -103,31 +103,31 @@
 // }
 
 
-class producto {
+// class producto {
 
-  constructor(id, nombre, precio) {
-    this.id = id
-    this.nombre = nombre
-    this.precio = precio
-  }
-}
-const productos =
-  [
-    { id: 1, nombre: "CERVEZA", precio: 500 },
-    { id: 2, nombre: "GANCIA", precio: 750 },
-    { id: 3, nombre: "FERNET", precio: 1200 },
-    { id: 4, nombre: "WISKEY", precio: 5100 }]
+//   constructor(id, nombre, precio) {
+//     this.id = id
+//     this.nombre = nombre
+//     this.precio = precio
+//   }
+// }
+// const productos =
+//   [
+//     { id: 1, nombre: "CERVEZA", precio: 500 },
+//     { id: 2, nombre: "GANCIA", precio: 750 },
+//     { id: 3, nombre: "FERNET", precio: 1200 },
+//     { id: 4, nombre: "WISKEY", precio: 5100 }]
 
-function buscarProducto() {
-  let aBuscar = prompt("ingrese la bebida que quiere buscar:").toUpperCase()
+// function buscarProducto() {
+//   let aBuscar = prompt("ingrese la bebida que quiere buscar:").toUpperCase()
 
-  let resultado = productos.filter((producto) => producto.nombre.includes(aBuscar))
+//   let resultado = productos.filter((producto) => producto.nombre.includes(aBuscar))
 
-  if (resultado !== undefined) {
-    console.clear();
-    console.table(resultado);
-  }
-}
+//   if (resultado !== undefined) {
+//     console.clear();
+//     console.table(resultado);
+//   }
+// }
 
 
 // function generadorAutomatico() {
@@ -151,7 +151,7 @@ function validarFormulario(e) {
   //Obtengo el valor del primero hijo <input type="text">
   console.log(formulario["nombre"].value);
   if (formulario["nombre"].value === "") {
-    alert("debe ingresar un nombre");
+    toastSA();
     console.log(formulario["nombre"].value);
 
 
@@ -159,7 +159,7 @@ function validarFormulario(e) {
   }
   console.log(formulario["apellido"].value);
   if (formulario["apellido"].value === "") {
-    alert("debe ingresar un apellido");
+    toastSA();
     console.log(formulario["apellido"].value);
 
 
@@ -167,7 +167,7 @@ function validarFormulario(e) {
   }
   console.log(formulario["email"].value);
   if (formulario["email"].value === "") {
-    alert("debe ingresar un correo");
+    toastSA();
     console.log(formulario["email"].value);
 
 
@@ -181,6 +181,20 @@ function validarFormulario(e) {
   )
 }
 
+const toastSA = (mensaje, bgColor, tiempo) => {
+  Swal.fire({
+    icon: 'error',
+    title: mensaje || 'debes rellenar este campo',
+    Text: 'que completar el campo',
+    position: 'top-center',
+    showConfirmButton: false,
+    toast: true,
+    timer: tiempo || 3000,
+    timerProgressBar: true,
+    background: bgColor || 'white',
+    color: "black",
+  })
+}
 
 
 const ofertasDiv = document.getElementById("ofertas");
@@ -221,13 +235,48 @@ function guardarDatosDeUsr(nombre, apellido, email) {
   localStorage.setItem("datosDeUsr", str)
 }
 
-function recuperoDatosDeUsr(){
-if (localStorage.getItem("datosDeUsr")) {
-  const datosDeUsr = JSON.parse(localStorage.getItem("datosDeUsr"))
-  nombre.value = datosDeUsr.nombre
-  apellido.value = datosDeUsr.apellido
-  email.value = datosDeUsr.email
-  return
-}
+function recuperoDatosDeUsr() {
+  if (localStorage.getItem("datosDeUsr")) {
+    const datosDeUsr = JSON.parse(localStorage.getItem("datosDeUsr"))
+    nombre.value = datosDeUsr.nombre
+    apellido.value = datosDeUsr.apellido
+    email.value = datosDeUsr.email
+    return
+  }
 }
 ;
+
+const contenedorProductos = document.getElementById ("contenedorProductos")
+let carrito = []
+
+
+productosHtml.forEach(bebidasHtml => {
+  const div = document.createElement("div")
+  div.classList.add("card")
+  div.innerHTML =  `<div class="card">
+                                   <img src="${bebidasHtml.img}" class="card-img-top" alt="bebidas">
+                                  <div class="card-body">
+                                  <h5 class="card-title">${bebidasHtml.nombre}</h5>
+                                 
+                                  <p class="card-text">Precio $: ${bebidasHtml.precio}</p>
+                                  <a href="#" class="btn btn-primary" id=comprar${bebidasHtml.id}>Comprar</a>
+                                  </div>
+                                  </div>`
+
+                                  contenedorProductos.appendChild(div)
+          
+          
+          
+          
+
+
+
+
+
+
+
+
+
+
+  })
+
