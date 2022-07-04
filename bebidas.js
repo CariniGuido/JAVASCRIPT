@@ -139,8 +139,8 @@
 // }
 // generadorAutomatico()
 
-let miFormulario = document.getElementById("formularioContacto");
-miFormulario.addEventListener("submit", validarFormulario);
+// let miFormulario = document.getElementById("formularioContacto");
+// miFormulario.addEventListener("submit", validarFormulario);
 
 function validarFormulario(e) {
 
@@ -209,7 +209,7 @@ const arrayOfertas = [
 // Cambiar segun cuantos haya en ofertas
 const aleatorio = Math.round(Math.random() * (3 - 1) * 1);
 
-ofertasDiv.innerHTML = arrayOfertas[aleatorio];
+// ofertasDiv.innerHTML = arrayOfertas[aleatorio];
 
 
 const inputNombre = document.querySelector("#inputNombre")
@@ -246,37 +246,5 @@ function recuperoDatosDeUsr() {
 }
 ;
 
-const contenedorProductos = document.getElementById ("contenedorProductos")
-let carrito = []
 
-
-productosHtml.forEach(bebidasHtml => {
-  const div = document.createElement("div")
-  div.classList.add("card")
-  div.innerHTML =  `<div class="card">
-                                   <img src="${bebidasHtml.img}" class="card-img-top" alt="bebidas">
-                                  <div class="card-body">
-                                  <h5 class="card-title">${bebidasHtml.nombre}</h5>
-                                 
-                                  <p class="card-text">Precio $: ${bebidasHtml.precio}</p>
-                                  <a href="#" class="btn btn-primary" id=comprar${bebidasHtml.id}>Comprar</a>
-                                  </div>
-                                  </div>`
-
-                                  contenedorProductos.appendChild(div)
-          
-          
-          
-          
-
-
-
-
-
-
-
-
-
-
-  })
 
