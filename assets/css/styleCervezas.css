@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap');
+
+body {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+ h2, h3 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 90px;
+    font-weight: 900;
+    font-stretch: wider;
+    
+}
+
+ul li {
+color: black;
+background-color: aliceblue;
+}
+
+
+span {
+    text-decoration: none;
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 0.65rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(128, 128, 128);
+    border-bottom: solid;
+    border-width: 0.063rem;
+
+}
+
+nav label {
+    display: none;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border-right: 1px solid gr;
+    cursor: pointer;
+}
+
+.header__logo {
+    width: 14rem;
+    cursor: pointer;
+}
+
+.header__menuContainer {
+    display: flex;
+}
+
+.header__menuNav__item {
+    list-style: none;
+}
+
+.header__menuNav__item li {
+    display: inline-block;
+    padding: 1rem;
+}
+
+.header__menuNav__item li a:hover {
+    color: rgb(128, 128, 128);
+}
+
+.header__menuBuqueda {
+    padding: 1rem;
+    margin-left: 3.2rem;
+    margin-right: 1.25rem;
+}

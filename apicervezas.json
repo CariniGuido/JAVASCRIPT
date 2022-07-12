@@ -1,0 +1,35 @@
+[
+    {
+       "id": 1,
+       "imagen": "../assets/img/fotos alcohol/cerveza/antares-wine1-242256b1b6e0817d0816001373797470-1024-1024.png",
+       "marca": "Antares",
+       "tipo": "cerveza",
+       "precio": "seis"
+     
+    },
+    {
+        "id": 2,
+        "imagen": "../assets/img/fotos alcohol/cerveza/kolsch-011-a21bd531805c1a9eec15931072736185-640-011-20f1401d4cf0e2ba5115996576475523-640-0.jpg",
+        "marca": "Kolsch",
+        "tipo": "cerveza",
+        "precio": "700"
+      
+     },
+     {
+        "id": 3,
+        "imagen": "../assets/img/fotos alcohol/cerveza/rabieta-271-4d9c81851c50126ea616038055109321-1024-1024.png",
+        "marca": "Rabieta heavy",
+        "tipo": "cerveza",
+        "precio": "600"
+      
+     },
+     {
+        "id": 4,
+        "imagen": "../assets/img/fotos alcohol/cerveza/rabietaipabotella1-151367ac271446b9f815815530389383-640-01-cd2b52e1a70a01c57116000089794618-1024-1024.jpg",
+        "marca": "Rabieta ipa",
+        "tipo": "cerveza",
+        "precio": "650"
+      
+     }
+
+]

@@ -209,7 +209,7 @@ const arrayOfertas = [
 // Cambiar segun cuantos haya en ofertas
 const aleatorio = Math.round(Math.random() * (3 - 1) * 1);
 
-// ofertasDiv.innerHTML = arrayOfertas[aleatorio];
+ ofertasDiv.innerHTML = arrayOfertas[aleatorio];
 
 
 const inputNombre = document.querySelector("#inputNombre")
