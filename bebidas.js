@@ -139,8 +139,8 @@
 // }
 // generadorAutomatico()
 
-// let miFormulario = document.getElementById("formularioContacto");
-// miFormulario.addEventListener("submit", validarFormulario);
+let miFormulario = document.getElementById("formularioContacto");
+ miFormulario.addEventListener("submit", validarFormulario);
 
 function validarFormulario(e) {
 
@@ -179,12 +179,18 @@ function validarFormulario(e) {
     formulario["apellido"].value,
     formulario["email"].value
   )
+  Swal.fire({
+    title: "Registro exitoso",
+    confirmButtonText: "aceptar",
+});
 }
+
+
 
 const toastSA = (mensaje, bgColor, tiempo) => {
   Swal.fire({
     icon: 'error',
-    title: mensaje || 'debes rellenar este campo',
+    title: mensaje || 'debes rellenar todos los campos',
     Text: 'que completar el campo',
     position: 'top-center',
     showConfirmButton: false,
@@ -195,6 +201,8 @@ const toastSA = (mensaje, bgColor, tiempo) => {
     color: "black",
   })
 }
+
+
 
 
 const ofertasDiv = document.getElementById("ofertas");
@@ -217,12 +225,12 @@ const inputApellido = document.querySelector("#inputApellido")
 const inputEmail = document.querySelector("#inputEmail")
 const btnSubmit = document.querySelector("#submit")
 
-// let datosDeInput = ""
-document.addEventListener("submit", (e) => {
-  e.preventDefault()
-  guardarDatosDeUsr()
-  alert(`Gracias por su compra 😃`)
-})
+  let datosDeInput = ""
+ document.addEventListener("submit", (e) => {
+   e.preventDefault()
+   guardarDatosDeUsr()
+   alert(`Gracias por registrarse 😃`)
+ })
 
 function guardarDatosDeUsr(nombre, apellido, email) {
   debugger
@@ -243,7 +251,9 @@ function recuperoDatosDeUsr() {
     email.value = datosDeUsr.email
     return
   }
+  
 }
+
 ;
 
 

@@ -183,3 +183,25 @@ span {
 }
 
 
+.columna__redes__ul {
+    list-style: none;
+}
+
+.columna__redes__ulLi {
+    display: inline-block;
+}
+
+.columna__redes__image {
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+    object-position: center;
+    margin-right: auto;
+}
+
+.footer__derechos {
+    color: black;
+    background-color: gray;
+    font-weight: bold;
+    text-align: center;
+}

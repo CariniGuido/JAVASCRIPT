@@ -5,17 +5,15 @@
 const retornoCardContenido = (contenido) => {
     
     const { imagen, marca, tipo,precio  } = contenido
-    return `<div class="col s12 m6 l3">
-                <div class="card z-depth-2">
-                    <div class="card-image">
-                       <img loading="lazy" src="${imagen}" title="${tipo}">
-                    </div>
-                    <div class="card-content black">
-                       <p class="yellow-text">Marca: <span class="white-text">${marca}</span></p>
-                       <p class="yellow-text">Precio: <span class="white-text">${precio}</span></p>
-                    </div>
-                </div>
-            </div>`
+    return `<div class="card__sectionProducto">
+    <a href="#"><img class="card__sectionProducto__image" src="${imagen}"
+            alt="phmetro4" /></a>
+    <a href="#" class="card__sectionProducto__title">
+        <p> ${marca} </p>
+    </a>
+    <p class="precio"><span>$${precio}</span>
+    <a href="#" class="card__product__actionCarrito">Añadir al carrito</a>
+</div>`
 }
 
 

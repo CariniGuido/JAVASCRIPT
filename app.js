@@ -57,23 +57,25 @@ stockProductos.forEach((producto) => {
 
 const agregarAlCarrito = (prodId) => {
 
-
     const existe = carrito.some(prod => prod.id === prodId)
-
-    if (existe) {
-        const prod = carrito.map(prod => {
-            if (prod.id === prodId) {
-                prod.cantidad++
-            }
-        })
-    } else {
-        const item = stockProductos.find((prod) => prod.id === prodId)
-
-        carrito.push(item)
+    
+    let funcion1= () => {
+      const prod = carrito.map(prod => {
+          if (prod.id === prodId) {
+              prod.cantidad++
+          }
+      })
     }
-
+    let funcion2=() => {
+      const item = stockProductos.find((prod) => prod.id === prodId)
+    
+      carrito.push(item)
+    }
+  
+    (existe)?funcion1():funcion2()
+  
     actualizarCarrito()
-}
+  }
 
 
 const eliminarDelCarrito = (prodId) => {
