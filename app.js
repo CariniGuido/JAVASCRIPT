@@ -2,7 +2,7 @@
 const contenedorProductos = document.getElementById('contenedor-productos')
 
 
-
+const botonParaComprar = document.getElementById ('comprar')
 const contenedorCarrito = document.getElementById('carrito-contenedor')
 
 const botonVaciar = document.getElementById('vaciar-carrito')
@@ -27,7 +27,13 @@ botonVaciar.addEventListener('click', () => {
     carrito.length = 0
     actualizarCarrito()
 })
-
+botonParaComprar.addEventListener ('click', ()=> {
+    Swal.fire({
+        title: "Gracias por su compra!!",
+        confirmButtonText: "aceptar",
+    });
+    }
+    )
 
 stockProductos.forEach((producto) => {
     const div = document.createElement('div')
@@ -83,7 +89,7 @@ const eliminarDelCarrito = (prodId) => {
 
     const indice = carrito.indexOf(item)
 
-    carrito.splice(indice, 1)
+    carrito.splice(indice,1)
 
     actualizarCarrito()
 
@@ -94,7 +100,12 @@ const actualizarCarrito = () => {
 
 
     contenedorCarrito.innerHTML = ""
+    if (carrito.length) {
+        botonParaComprar.disabled=false;
+    }  else {
+        botonParaComprar.disabled=true;
 
+    }
     carrito.forEach((prod) => {
         const div = document.createElement('div')
         div.className = ('productoEnCarrito')

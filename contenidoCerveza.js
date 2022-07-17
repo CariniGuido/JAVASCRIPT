@@ -3,8 +3,8 @@
 
 
 const retornoCardContenido = (contenido) => {
-    
-    const { imagen, marca, tipo,precio  } = contenido
+
+    const { imagen, marca, tipo, precio } = contenido
     return `<div class="card__sectionProducto">
     <a href="#"><img class="card__sectionProducto__image" src="${imagen}"
             alt="phmetro4" /></a>
@@ -29,26 +29,49 @@ const retornoCardError = () => {
                     </div>`
 }
 
+let stockProd;
 
 const obtenerContenido = (URL) => {
     let cardsAmostrar = ""
     fetch(URL)
         .then((Response) => Response.json())
         .then((data) => {
-            
 
+           stockProd=data;
             for (contenido of data) {
 
                 cardsAmostrar += retornoCardContenido(contenido)
             }
             contenidoDOM.innerHTML = cardsAmostrar
         })
-        
 
-        .catch((error)=> contenidoDOM.innerHTML = retornoCardError() )
-         .finally(()=> cargandoDOM.innerHTML = "")
+
+        .catch((error) => contenidoDOM.innerHTML = retornoCardError())
+        .finally(() => cargandoDOM.innerHTML = "")
 }
 
 
 
 
+const buscarProductos  = document.querySelector("#busquedaproducto")
+
+buscarProductos.addEventListener('keyup', e => {
+
+
+    let resultado = stockProd.filter((contenido) => contenido.marca.toLowerCase().includes(e.target.value.toLowerCase()))
+
+    if (resultado !== undefined) {
+        console.clear();
+        console.table(resultado);
+        let cardsAmostrar= "";
+        for (contenido of resultado) {
+
+            cardsAmostrar += retornoCardContenido(contenido)
+        }
+        contenidoDOM.innerHTML = cardsAmostrar
+    }
+return  
+ 
+}
+
+)

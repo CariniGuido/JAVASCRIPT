@@ -163,3 +163,13 @@ align-items: flex-end;
 .informacion__contacto:hover {
     color: white;
 }
+
+#carrito-contenedor .producto-EnCarrito p{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: table-cell;
+  vertical-align: middle;
+  
+}
