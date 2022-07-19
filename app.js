@@ -2,7 +2,7 @@
 const contenedorProductos = document.getElementById('contenedor-productos')
 
 
-const botonParaComprar = document.getElementById ('comprar')
+const botonParaComprar = document.getElementById('comprar')
 const contenedorCarrito = document.getElementById('carrito-contenedor')
 
 const botonVaciar = document.getElementById('vaciar-carrito')
@@ -27,13 +27,18 @@ botonVaciar.addEventListener('click', () => {
     carrito.length = 0
     actualizarCarrito()
 })
-botonParaComprar.addEventListener ('click', ()=> {
+botonParaComprar.addEventListener('click', () => {
     Swal.fire({
         title: "Gracias por su compra!!",
         confirmButtonText: "aceptar",
-    });
+
+
+    }); {
+        contenedorModal.classList.toggle('modal-active')
     }
-    )
+
+}
+)
 
 stockProductos.forEach((producto) => {
     const div = document.createElement('div')
@@ -64,24 +69,24 @@ stockProductos.forEach((producto) => {
 const agregarAlCarrito = (prodId) => {
 
     const existe = carrito.some(prod => prod.id === prodId)
-    
-    let funcion1= () => {
-      const prod = carrito.map(prod => {
-          if (prod.id === prodId) {
-              prod.cantidad++
-          }
-      })
+
+    let funcion1 = () => {
+        const prod = carrito.map(prod => {
+            if (prod.id === prodId) {
+                prod.cantidad++
+            }
+        })
     }
-    let funcion2=() => {
-      const item = stockProductos.find((prod) => prod.id === prodId)
-    
-      carrito.push(item)
+    let funcion2 = () => {
+        const item = stockProductos.find((prod) => prod.id === prodId)
+
+        carrito.push(item)
     }
-  
-    (existe)?funcion1():funcion2()
-  
+
+    (existe) ? funcion1() : funcion2()
+
     actualizarCarrito()
-  }
+}
 
 
 const eliminarDelCarrito = (prodId) => {
@@ -89,7 +94,7 @@ const eliminarDelCarrito = (prodId) => {
 
     const indice = carrito.indexOf(item)
 
-    carrito.splice(indice,1)
+    carrito.splice(indice, 1)
 
     actualizarCarrito()
 
@@ -101,9 +106,9 @@ const actualizarCarrito = () => {
 
     contenedorCarrito.innerHTML = ""
     if (carrito.length) {
-        botonParaComprar.disabled=false;
-    }  else {
-        botonParaComprar.disabled=true;
+        botonParaComprar.disabled = false;
+    } else {
+        botonParaComprar.disabled = true;
 
     }
     carrito.forEach((prod) => {
