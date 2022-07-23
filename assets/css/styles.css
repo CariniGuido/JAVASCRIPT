@@ -51,7 +51,7 @@ h1 {
     margin: 30px auto;
     display: flex;
     justify-content: space-between;
-    
+    max-inline-size: fit-content;
 }
 
 p {

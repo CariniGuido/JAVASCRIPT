@@ -250,6 +250,7 @@ nav label {
     display: block;
     margin: 0 auto;
     margin-top: 5rem;
+    height: 500px;
 }
 
 .videoPerfume {
@@ -260,16 +261,20 @@ nav label {
 .sectionTres {
     grid-area: sectionTres;
     margin: 5rem 0px;
+    width: 850px;
+    display: flex;
+    flex-direction: row;
 }
 
 .perfumes__mujer {
     display: block;
-    width: 70%;
+    width: 580px;
     transition: all 300ms;
     position: relative;
     margin: auto;
     height: auto;
     border: 2px solid grey;
+    margin-left: 50px;
 }
 
 .perfumes__mujer:hover {
@@ -279,16 +284,20 @@ nav label {
 .sectionCuatro {
     grid-area: sectionCuatro;
     margin: 5rem 0px;
+    width: 850px
+    ;
 }
 
 .perfumes__hombre {
     display: block;
-    width: 70%;
+    width: 580px;
     transition: all 300ms;
     position: relative;
     margin: auto;
     height: auto;
     border: 2px solid grey;
+    margin-left: 90px;
+    
 }
 
 .perfumes__hombre:hover {
@@ -548,7 +557,8 @@ nav label {
 /*VISTA DESKTOP*/
 @media screen and (min-width: 1108px) {
     .gridContainer {
-        display: grid;
+        /* display: grid; */
+        overflow: hidden;
         grid-template-areas:
             "header header header header header header"
             "sectionUno sectionUno sectionUno sectionUno sectionUno sectionUno"
@@ -751,6 +761,9 @@ nav label {
     .sectionTres {
         grid-area: sectionTres;
         margin: 2rem 0px;
+       display: flex;
+       flex-direction: row;
+        
     }
 
     .perfumes__mujer {
@@ -862,5 +875,12 @@ nav label {
         height: 25rem;
     }
 
+    #alinear-imagenes {
+        display: flex
+        ;
+        flex-direction: row;
+
+
+    }
 
 }
